@@ -4,7 +4,7 @@ services:
 
 # Database
   hydro-postgres:
-    image: "postgres:12.2"
+    build: ../postgres-postgis/
     restart: always
     container_name: "kazhydromet-postgres"
     env_file: .local_env
