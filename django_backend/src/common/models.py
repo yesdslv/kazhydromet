@@ -13,9 +13,11 @@ class Region(models.Model):
 
 
 class Station(models.Model):
-    name = models.CharField(max_length=100)
+    code = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=255)
+    nameEn = models.CharField(max_length=255, blank=True)
     location = models.PointField()
-    region = models.ForeignKey(Region, on_delete=models.SET_NULL)
+    region = models.ForeignKey(Region, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         abstract = True
